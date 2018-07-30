@@ -1,0 +1,30 @@
+.visual-math-input-field {
+    background: #fcfcfc;
+    border: 1px solid #bbb;
+    min-width: 320px;
+    min-height: 32px;
+    width: 90%;
+    padding: 8px;
+}
+
+.visual-math-input-controls {
+    width: 90%;
+    margin-bottom: 2px; 
+}
+
+.visual-math-input-control {
+    outline: none;
+    cursor: pointer;
+    border: none;
+    margin: 0;
+    padding: 6px;
+    width: 40px;
+    height: 40px;
+    font-size: 1.2em;
+    font-family: Symbola, 'Times New Roman', serif;
+}
+
+.visual-math-input-control sup,
+.visual-math-input-control sub {
+    font-size: 0.5em;
+}
