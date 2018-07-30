@@ -2,10 +2,10 @@
 Replace an existing input with a visual math editor using MathQuill.
 
 # Where to place the files
-"font" => the root of the Moodle plugin directory.
-"mathquill.css" => either copy the contents to styles.css, or include the file from a renderer
-"mathquill.js" => place in amd/src of plugin (MathQuill is wrapped as an AMD module)
-"visual-math-input.js" => place in amd/src of plugin - see file for usage (remember to encode args as json string)
+* font => the root of the Moodle plugin directory.
+* mathquill.css => either copy the contents to styles.css, or include the file from a renderer
+* mathquill.js => place in amd/src of plugin (MathQuill is wrapped as an AMD module)
+* visual-math-input.js => place in amd/src of plugin - see file for usage (remember to encode args as json string)
 
 # How to include in your Moodle plugin
 You need to create a new AMD module to configure the editor.
