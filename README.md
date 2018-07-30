@@ -14,9 +14,10 @@ You need to create a new AMD module to configure the editor.
 define(['plugin_name/visual-math-input'], function (VisualMath) {
     return {
         initialize: () => {
-            let input = new VisualMath.Input('.mathexp .answer input');
-            let controls = new VisualMath.ControlList('#controls');
-            controls.addInput(input);
+            let input = new VisualMath.Input('.mathexp .answer input', '.answer');
+            input.$input.hide();
+            let controls = new VisualMath.ControlList('#controls_wrapper');
+            controls.enableAll();
         }
     };
 });
