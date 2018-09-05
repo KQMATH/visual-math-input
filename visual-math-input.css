@@ -2,7 +2,7 @@
     background: #fcfcfc;
     border: 1px solid #bbb;
     min-height: 32px;
-    width: 100%;
+    max-width: 100%;
     padding: 8px;
 }
 
