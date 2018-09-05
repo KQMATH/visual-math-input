@@ -9,12 +9,14 @@ Replace an existing input with a visual math editor using MathQuill.
 * visual-math-input.css => either copy the contents to styles.css, or save in plugin root and include the file from a renderer
 
 # How to include in your Moodle plugin
-You need to create a new AMD module to configure the editor.
+You need to create a new AMD module to configure the editor, i.e.
+a file, say amd/src/input.js, with the following contents where
+foobar is replaced by the name of the plugin (question type).
 ```javascript
-define(['plugin_name/visual-math-input'], function (VisualMath) {
+define(['qtype_foobar/visual-math-input'], function (VisualMath) {
     return {
         initialize: () => {
-            let input = new VisualMath.Input('.mathexp .answer input', '.answer');
+            let input = new VisualMath.Input('.foobar .answer input', '.answer');
             input.$input.hide();
             let controls = new VisualMath.ControlList('#controls_wrapper');
             controls.enableAll();
@@ -25,7 +27,7 @@ define(['plugin_name/visual-math-input'], function (VisualMath) {
 
 Then call it in the page you want the editor:
 ```php
-$PAGE->requires->js_call_amd('plugin_name/input', 'initialize');
+$PAGE->requires->js_call_amd('qtype_foobar/input', 'initialize');
 ```
 
 The editor also needs to add the two CSS files to the page. This can be done by either copying and pasting the contents into your plugin's "styles.css" file, or by adding the files like so:
