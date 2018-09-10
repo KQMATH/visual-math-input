@@ -3,6 +3,7 @@
     border: 1px solid #bbb;
     min-height: 32px;
     max-width: 100%;
+    min-width: unset;
     padding: 8px;
 }
 
