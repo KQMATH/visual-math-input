@@ -127,7 +127,8 @@ define(['jquery', './mathquill'], function ($, MathQuill) {
             this.define('theta', '&theta;', field => field.cmd('\\theta'));
             this.define('pi', '&pi;', field => field.cmd('\\pi'));
             this.define('infinity', '&infin;', field => field.cmd('\\infinity'));
-            this.define('caret', '^', field => field.cmd('^'))
+            // this.define('caret', '^', field => field.cmd('x<sup>y<sup>')); 
+	    this.define('caret', 'x<sup>y<sup>', field => field.cmd('^')); 
         }
 
     }
