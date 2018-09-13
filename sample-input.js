@@ -1,5 +1,5 @@
 /**
- * @author     André Storhaug <andr3.storhaug@gmail.com>
+ * @author     André Storhaug <andr3.storhaug@gmail.com> and Hans Georg Schaathun <hasc@ntnu.no>
  * @copyright  2018 NTNU
  */
 
