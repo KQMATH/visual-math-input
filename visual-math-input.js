@@ -99,6 +99,13 @@ define(['jquery', './mathquill'], function ($, MathQuill) {
         defineDefault() {
             // It is also possible to render \\[ \\binom{n}{k} \\] with MathJax.
             // Using MathQuill's HTML output is slightly less clean, but we avoid using YUI and MathJax.
+
+            let sqrt = '<span class="mq-root-block">&radic;</span>';
+            let int = '<span class="mq-root-block">&int;</span>';
+            let dint = '<span class="mq-root-block">&int;<sub>0</sub><sup>1</sup></span>';
+            let sum = '<span class="mq-root-block"><span class="mq-large-operator mq-non-leaf">&sum;</span></span>';
+            let lim = '<span class="mq-root-block">lim</span>';
+
             let nchoosek = '<div class="mq-math-mode" style="cursor:pointer;font-size:100%;">';
             nchoosek += '<span class="mq-root-block">';
             nchoosek += '<span class="mq-non-leaf">';
@@ -110,25 +117,40 @@ define(['jquery', './mathquill'], function ($, MathQuill) {
             nchoosek += '</span></span>';
             nchoosek += '<span class="mq-paren mq-scaled" style="transform: scale(0.8, 1.5);">)</span></span>';
             nchoosek += '</span></div>';
-            this.define('sqrt', '&radic;', field => field.cmd('\\sqrt'));
-            this.define('int', '&int;', field => field.cmd('\\int'));
-            this.define('dint', '&int;<sub>0</sub><sup>1</sup>', field => {
+
+            let divide = '<span class="mq-root-block">/</span>';
+            let plusminus = '<span class="mq-root-block">&plusmn;</span>';
+            let theta = '<span class="mq-root-block">&theta;</span>';
+            let pi = '<span class="mq-root-block">&pi;</span>';
+            let infinity = '<span class="mq-root-block">&infin;</span>';
+
+            let caret = '<div class="mq-math-mode" style="cursor:pointer;font-size:100%;">';
+            caret += '<span class="mq-root-block">';
+            caret += '<var>x</var>';
+            caret += '<span class="mq-supsub mq-non-leaf mq-sup-only">';
+            caret += '<span class="mq-sup">';
+            caret += '<var>y</var>';
+            caret += '</span></span></span></div>';
+
+
+            this.define('sqrt', sqrt, field => field.cmd('\\sqrt'));
+            this.define('int', int, field => field.cmd('\\int'));
+            this.define('dint', dint, field => {
                 field.cmd('\\int');
                 field.typedText('_0').moveToRightEnd();
                 field.typedText('^1').moveToRightEnd();
             });
-            this.define('sum', '&sum;', field => field.cmd('\\sum'));
-            this.define('lim', 'lim', field => {
+            this.define('sum', sum, field => field.cmd('\\sum'));
+            this.define('lim', lim, field => {
                 field.cmd('\\lim').typedText('_').write('x').cmd('\\to').write('0').moveToRightEnd();
             });
             this.define('nchoosek', nchoosek, field => field.cmd('\\choose'));
-            this.define('divide', '/', field => field.cmd('\\frac'));
-            this.define('plusminus', '&plusmn;', field => field.cmd('\\pm'));
-            this.define('theta', '&theta;', field => field.cmd('\\theta'));
-            this.define('pi', '&pi;', field => field.cmd('\\pi'));
-            this.define('infinity', '&infin;', field => field.cmd('\\infinity'));
-            // this.define('caret', '^', field => field.cmd('x<sup>y<sup>')); 
-	    this.define('caret', 'x<sup>y<sup>', field => field.cmd('^')); 
+            this.define('divide', divide, field => field.cmd('\\frac'));
+            this.define('plusminus', plusminus, field => field.cmd('\\pm'));
+            this.define('theta', theta, field => field.cmd('\\theta'));
+            this.define('pi', pi, field => field.cmd('\\pi'));
+            this.define('infinity', infinity, field => field.cmd('\\infinity'));
+            this.define('caret', caret, field => field.cmd('^'));
         }
 
     }
