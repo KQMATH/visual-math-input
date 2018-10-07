@@ -135,11 +135,7 @@ define(['jquery', './mathquill'], function ($, MathQuill) {
 
             this.define('sqrt', sqrt, field => field.cmd('\\sqrt'));
             this.define('int', int, field => field.cmd('\\int'));
-            this.define('dint', dint, field => {
-                field.cmd('\\int');
-                field.typedText('_0').moveToRightEnd();
-                field.typedText('^1').moveToRightEnd();
-            });
+            this.define('dint', dint, field => field.write('\\int_0^1'));
             this.define('sum', sum, field => field.cmd('\\sum'));
             this.define('lim', lim, field => {
                 field.cmd('\\lim').typedText('_').write('x').cmd('\\to').write('0').moveToRightEnd();
