@@ -10,7 +10,7 @@ define(['jquery', './mathquill'], function ($, MathQuill) {
             this.$input = $(input);
             this.$parent = $(parent);
             let wrapper = document.createElement('div');
-            $(wrapper).addClass('visual-math-input-field');
+            this.wrapper = $(wrapper).addClass('visual-math-input-field');
             let MQ = MathQuill.getInterface(2);
             this.field = MQ.MathField(wrapper, {
                 spaceBehavesLikeTab: true,
